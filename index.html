@@ -4,85 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Document</title>
+    <script src="file.js" defer></script>
+    <title>Rock-Paper-Scissor</title>
 </head>
 <body>
-    <script>
-        function computerPlay() {
-            let random = Math.floor(Math.random() * 3);
-            if (random == 0) {
-                return "Rock";
-            }
-            else if (random == 1) {
-                return "Paper";
-            }
-            else {
-                return "Scissor";
-            }
-        };
+<h1>The ultimate Rock-Paper-Scissor Game</h1>
+<button class="btn" id="rock">Rock</button>
+<button class="btn" id="paper">Paper</button>
+<button class="btn" id="scissor">Scissor</button>
 
-        function playRound(playerSelection, computerSelection) {
-            let playerSelection_l = playerSelection.toLowerCase();
-            let computerSelection_l = computerSelection.toLowerCase();
-
-            if (playerSelection_l == "rock" && computerSelection_l == "paper") {
-                return "You Lose! Paper beats Rock";
-            }
-            else if (playerSelection_l == "rock" && computerSelection_l == "rock") {
-                return "It's a Draw";
-                         }
-            else if (playerSelection_l == "rock" && computerSelection_l == "scissor") {
-                return "You Won! Rock beats Scissor";
-                
-            }
-            else if (playerSelection_l == "paper" && computerSelection_l == "paper") {
-                return "It's a Draw";
-                         }
-            else if (playerSelection_l == "paper" && computerSelection_l == "rock") {
-                return "You Won! Paper beats Rock";
-                
-            }
-            else if (playerSelection_l == "paper" && computerSelection_l == "scissor") {
-                return "You Lose! Scissor beats Paper";
-                
-            }
-            else if (playerSelection_l == "scissor" && computerSelection_l == "paper") {
-                return "You Won! Scissor beats Paper";
-                
-            }
-            else if (playerSelection_l == "scissor" && computerSelection_l == "rock") {
-                return "You Lose! Rock beats Scissor";
-                
-            }
-            else if (playerSelection_l == "scissor" && computerSelection_l == "scissor") {
-                return "It's a Draw";
-                         }
-        }
-        
-        function game() {
-            let count_c = 0;
-            let count_p = 0; 
-            for (let i=0; i<5; i++){
-                let playerSelection = prompt();
-                let computerSelection = computerPlay();
-                playRound(playerSelection, computerSelection);
-                if (playRound(playerSelection, computerSelection) == "You Lose! Rock beats Scissor"|| playRound(playerSelection, computerSelection) == "You Lose! Scissor beats Paper" || playRound(playerSelection, computerSelection) == "You Lose! Paper beats Rock") {
-                    count_c++;
-                }
-                else if(playRound(playerSelection, computerSelection) == "You Win! Scissor beats Paper"|| playRound(playerSelection, computerSelection) == "You Won! Paper beats Rock" || playRound(playerSelection, computerSelection) == "You Won! Rock beats Scissor") {
-                    count_p++;
-                }
-            }
-            if (count_c > count_p) {
-                alert("You Lost! Go polish your Skills!")    
-            }
-            else {
-                alert("You Won!")
-            }
-            
-        }
-        console.log(game())
-    </script>
+<div id="container">
+    <h2 id="gamecount">Game Count</h2>
+    <h3>Player Count</h3>
+        <span id="player">0</span>
+    <h3>The mighty Computer Count</h3>
+        <span id="computer">0</span>
+</div>
 </body>
 </html>
